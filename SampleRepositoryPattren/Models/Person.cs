@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace SampleRepositoryPattren.Models
 {
+
+   public interface IEntity {
+
+        bool IsValid();
+    }
+
     public class Person
     {
 
         public int Id { get; set; }
 
-        public string Gender { get; set; }
+        public string Name { get; set; }
+
     }
 }

@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace SampleRepositoryPattren.Models
 {
-    public class Employee : Person
+    public class Employee : Person , IEntity
     {
-
-        public int Id { get; set; }
-
-        public string  EmpName   { get; set; }
+        
 
 
+        public string  EmpNo { get; set; }
+
+        public bool IsValid()
+        {
+            return true;
+        }
     }
 }

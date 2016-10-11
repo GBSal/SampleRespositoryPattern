@@ -9,8 +9,7 @@ namespace SampleRepositoryPattren.Models
    public class Manager
     {
 
-        public int Id { get; set; }
+        public string DeptName { get; set; }
 
-        public string Dept { get; set; }
     }
 }
