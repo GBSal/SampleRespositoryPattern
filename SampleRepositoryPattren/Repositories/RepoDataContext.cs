@@ -23,21 +23,27 @@ namespace SampleRepositoryPattren.Repositories
     }
 
 
-
-
-    interface IRepository<T> :IDisposable
+    interface IReadOnlyRepository<out T> :IDisposable
     {
-        void Add(T entity);
-
-        void Delete(int Id);
 
         IQueryable<T> FindAll();
 
         T FindById(int Id);
 
 
+    }
+
+    interface IWriteOnlyRepository<in T> : IDisposable
+    {
+        void Add(T entity);
+
+        void Delete(int Id);
         int Commit();
 
+    }
+    interface IRepository<T> : IReadOnlyRepository<T>,IWriteOnlyRepository<T>, IDisposable
+    {
+        
         
 
     }

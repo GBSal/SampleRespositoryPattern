@@ -3,7 +3,7 @@ using SampleRepositoryPattren.Models;
 using SampleRepositoryPattren.Repositories;
 using System.Linq;
 using System.Data.Entity;
-
+using System.Collections.Generic;
 
 namespace SampleRepositoryPattren
 {
@@ -19,8 +19,11 @@ namespace SampleRepositoryPattren
             {
 
                 AddEmployee(emp);
+                AddManager(emp);
+
                 CountEmployee(emp);
                 FindEmployee(emp);
+
 
             }
 
@@ -31,11 +34,24 @@ namespace SampleRepositoryPattren
 
         }
 
-        private static void FindEmployee(IRepository<Employee> emp)
+        private static void AddManager(IWriteOnlyRepository<Manager> emp)
         {
-            var employee = emp.FindById(1);
+            emp.Add(new Manager { Name = "Russell" });
+            emp.Commit();
+         
+        }
 
-            Console.WriteLine(employee.Name );
+        private static void FindEmployee(IReadOnlyRepository<Person> emp)
+        {
+            var employee = emp.FindAll();
+
+            foreach (var e in employee)
+            {
+                Console.WriteLine(e.Name);
+
+            }
+
+
         }
 
         private static void CountEmployee(IRepository<Employee> emp)
@@ -45,8 +61,8 @@ namespace SampleRepositoryPattren
 
         private static void AddEmployee(IRepository<Employee> emp)
         {
-            emp.Add(new Employee { Name = "Saima Salman", EmpNo = "112" });
-            emp.Add(new Employee { Name = "Mohammad Salman", EmpNo = "113" });
+            emp.Add(new Employee { Name = "Saima Salman"});
+            emp.Add(new Employee { Name = "Mohammad Salman"});
 
             emp.Commit();
         }

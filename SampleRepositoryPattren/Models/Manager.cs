@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace SampleRepositoryPattren.Models
 {
-   public class Manager
+   public class Manager :Employee
     {
 
-        public string DeptName { get; set; }
+        public override void DoWork()
+        {
+            Console.WriteLine("Create work");
+        }
 
     }
 }

@@ -9,14 +9,22 @@ namespace SampleRepositoryPattren.Models
 {
     public class Employee : Person , IEntity
     {
+
+        public int Id { get; set; }
         
-
-
-        public string  EmpNo { get; set; }
 
         public bool IsValid()
         {
             return true;
         }
+
+
+        public virtual void DoWork()
+        {
+
+            Console.WriteLine("do some work");
+        }
     }
+
+
 }
