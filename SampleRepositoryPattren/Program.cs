@@ -45,8 +45,8 @@ namespace SampleRepositoryPattren
 
         private static void AddEmployee(IRepository<Employee> emp)
         {
-            emp.Add(new Employee { Name = "Saima Salman", EmpNo = "112" });
-            emp.Add(new Employee { Name = "Mohammad Salman", EmpNo = "113" });
+            emp.Add(new Employee { Name = "John", EmpNo = "112" });
+            emp.Add(new Employee { Name = "Fox", EmpNo = "113" });
 
             emp.Commit();
         }
